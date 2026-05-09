@@ -1,9 +1,14 @@
-variable "aws_region" {
-  description = "AWS region where resources will be created"
+variable "bucket_name_prefix" {
+  description = "Prefix for the S3 bucket name"
   type        = string
 }
 
-variable "bucket_name" {
-  description = "Globally unique S3 bucket name"
+variable "environment" {
+  description = "Environment name"
+  type        = string
+}
+
+variable "project_name" {
+  description = "Project name"
   type        = string
 }
