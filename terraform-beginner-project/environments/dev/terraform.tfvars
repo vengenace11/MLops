@@ -1,17 +1,17 @@
-aws_region  = "ap-south-1"
-aws_profile = "dev-account"
+# aws_region  = "ap-south-1"
+# aws_profile = "dev-account"
 
-environment  = "dev"
-project_name = "beginner-terraform"
+# environment  = "dev"
+# project_name = "beginner-terraform"
 
-bucket_name_prefix = "beginner-terraform-bucket"
+# bucket_name_prefix = "beginner-terraform-bucket"
 
-security_group_name = "beginner-terraform-sg"
+# security_group_name = "beginner-terraform-sg"
 
-allowed_ssh_cidr = "0.0.0.0/0"
+# allowed_ssh_cidr = "0.0.0.0/0"
 
-instance_type = "t2.micro"
+# instance_type = "t2.micro"
 
-key_name = "your-existing-keypair-name"
+# key_name = "your-existing-keypair-name"
 
-instance_name = "beginner-terraform-ec2"
+# instance_name = "beginner-terraform-ec2"
