@@ -6,27 +6,27 @@ terraform {
   }
 }
 
-resource "aws_iam_role" "pg_role" {
-  name = "pg-role-${var.region_name}"
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [{ Action = "sts:AssumeRole", Effect = "Allow", Principal = { Service = "ec2.amazonaws.com" } }]
-  })
-}
+# resource "aws_iam_role" "pg_role" {
+#   name = "pg-role-${var.region_name}"
+#   assume_role_policy = jsonencode({
+#     Version = "2012-10-17"
+#     Statement = [{ Action = "sts:AssumeRole", Effect = "Allow", Principal = { Service = "ec2.amazonaws.com" } }]
+#   })
+# }
 
-resource "aws_iam_role_policy" "consul_discovery" {
-  name = "consul-discovery"
-  role = aws_iam_role.pg_role.id
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [{ Action = "ec2:DescribeInstances", Effect = "Allow", Resource = "*" }]
-  })
-}
+# resource "aws_iam_role_policy" "consul_discovery" {
+#   name = "consul-discovery"
+#   role = aws_iam_role.pg_role.id
+#   policy = jsonencode({
+#     Version = "2012-10-17"
+#     Statement = [{ Action = "ec2:DescribeInstances", Effect = "Allow", Resource = "*" }]
+#   })
+# }
 
-resource "aws_iam_instance_profile" "pg_profile" {
-  name = "pg-profile-${var.region_name}"
-  role = aws_iam_role.pg_role.name
-}
+# resource "aws_iam_instance_profile" "pg_profile" {
+#   name = "pg-profile-${var.region_name}"
+#   role = aws_iam_role.pg_role.name
+# }
 
 resource "aws_instance" "pg_node" {
   count                = var.instance_count
