@@ -33,7 +33,7 @@ resource "aws_instance" "pg_node" {
   ami                  = var.ami_id
   instance_type        = "t3.medium"
   subnet_id            = var.subnet_ids[count.index % length(var.subnet_ids)]
-  iam_instance_profile = aws_iam_instance_profile.pg_profile.name
+  # iam_instance_profile = aws_iam_instance_profile.pg_profile.name
 
   user_data = <<-EOF
               #!/bin/bash
