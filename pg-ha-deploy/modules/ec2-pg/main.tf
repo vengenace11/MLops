@@ -31,7 +31,7 @@ terraform {
 resource "aws_instance" "pg_node" {
   count                = var.instance_count
   ami                  = var.ami_id
-  instance_type        = "t3.micro"
+  instance_type        = "t3.small"
   subnet_id            = var.subnet_ids[count.index % length(var.subnet_ids)]
   # iam_instance_profile = aws_iam_instance_profile.pg_profile.name
 
