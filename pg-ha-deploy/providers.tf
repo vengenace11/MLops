@@ -10,6 +10,7 @@ terraform {
 provider "aws" {
   region = var.region_primary
   alias  = "primary"
+  # Optional: profile = "your-aws-profile-name"
 }
 
 provider "aws" {
