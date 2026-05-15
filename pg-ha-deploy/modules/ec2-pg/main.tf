@@ -31,16 +31,16 @@ terraform {
 resource "aws_instance" "pg_node" {
   count                = var.instance_count
   ami                  = var.ami_id
-  instance_type        = "t3.small"
+  instance_type        = "t2.micro"
   subnet_id            = var.subnet_ids[count.index % length(var.subnet_ids)]
   # iam_instance_profile = aws_iam_instance_profile.pg_profile.name
 
-  user_data = <<-EOF
-              #!/bin/bash
-              apt-get update
-              apt-get install -y postgresql patroni consul haproxy prometheus-postgres-exporter
-              # Configuration logic for Patroni (DCS: Consul) goes here
-              EOF
+  # user_data = <<-EOF
+  #             #!/bin/bash
+  #             apt-get update
+  #             apt-get install -y postgresql patroni consul haproxy prometheus-postgres-exporter
+  #             # Configuration logic for Patroni (DCS: Consul) goes here
+  #             EOF
 
   tags = {
     Name    = "pg-node-${var.region_name}-${count.index}"
