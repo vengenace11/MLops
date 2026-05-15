@@ -13,7 +13,7 @@ provider "aws" {
   # Optional: profile = "your-aws-profile-name"
 }
 
-# provider "aws" {
-#   region = var.region_secondary
-#   alias  = "secondary"
-# }
+provider "aws" {
+  region = var.region_secondary
+  alias  = "secondary"
+}
